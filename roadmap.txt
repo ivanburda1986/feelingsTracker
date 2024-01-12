@@ -1,0 +1,73 @@
+==========MVP==========
+PUBLIC ZONE
+Landing page
+-introduction
+-create an account
+-login
+
+Create an account
+-firestore
+-email, password
+-easy access
+
+Login
+-firestore
+-email, password
+-easy access
+
+Access reset
+
+MEMBER ZONE
+A list of emoticons
+-emoticons to track various feelings (get a set of relevant feelings)
+-emoticon
+--feeling name (sad, lonely, happy, thrilled, etc.)
+--ENUM
+--image of a feeling
+--color
+--score at the scale from -100 to 100
+
+Submit a feeling
+--select an emoticon
+--confirm submitting
+--ENUM, date
+
+Feeling visualisation in time
+--x axis with yy-mm
+--y axis with mood rating
+--chart showing development of mood in time
+
+Delete a feeling
+-show a list of last 10 tracked feelings
+-emoticon, name, timestamp
+-delete, confirm
+
+Edit a feeling
+-show a list of last 10 tracked feelings
+-emoticon, name, timestamp
+-edit, confirm
+
+Logout
+
+
+DATA STRUCTURE
+user
+-nickname
+-email
+-id
+-password
+
+tracked feelings
+-array of objects where each represents a tracked feeling
+-tracked feeling
+--userId
+--feeling ENUM
+--timestamp
+
+emotions
+-enum
+-color
+-score
+-name
+-description
+-emoticon
