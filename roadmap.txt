@@ -71,3 +71,10 @@ emotions
 -name
 -description
 -emoticon
+
+
+
+
+Credits
+Seaweed:
+https://unsplash.com/photos/green-and-brown-plant-under-water-mVOp96B7UNE?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash
