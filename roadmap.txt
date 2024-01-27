@@ -7,7 +7,7 @@ Landing page
 
 Create an account
 -firestore
--email, password
+-email, password, nickname
 -easy access
 
 Login

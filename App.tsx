@@ -1,11 +1,13 @@
 import {StatusBar} from 'expo-status-bar';
 import {View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {LandingPage} from "./screens/LandingPage";
+import {LandingScreen} from "./screens/LandingScreen";
+import {RegisterScreen} from "./screens/RegisterScreen";
 
 function Navigation(){
   return <NavigationContainer>
-    <LandingPage/>
+    {/*<LandingScreen/>*/}
+    <RegisterScreen/>
   </NavigationContainer>
 }
 

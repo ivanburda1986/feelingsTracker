@@ -1,11 +1,12 @@
 import {FC} from 'react';
 import {View, Image, StyleSheet, Button,Text} from "react-native";
+import {sharedStyles} from "../styles";
 
 
-export const LandingPage: FC = () => {
+export const LandingScreen: FC = () => {
     return (
-<View style={styles.landingPage}>
-    <Text style={styles.headerText}>Feelings</Text>
+<View style={styles.landingScreen}>
+    <Text style={sharedStyles.header1}>Feelings</Text>
     <Image source={require('../assets/logo.jpg')} style={styles.logo}/>
     <View style={styles.buttonContainer}>
         <Button title={"Register"} color="seagreen"/>
@@ -18,18 +19,12 @@ export const LandingPage: FC = () => {
 };
 
 const styles = StyleSheet.create({
-
-    landingPage:{
+    landingScreen:{
       flex: 1,
       justifyContent:"center",
       alignItems:"center",
         backgroundColor:'azure'
 
-    },
-    headerText:{
-      fontSize: 42,
-        marginBottom: 10,
-        color: 'seagreen'
     },
     logo:{
         width: 200,
