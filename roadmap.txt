@@ -42,11 +42,6 @@ Delete a feeling
 -emoticon, name, timestamp
 -delete, confirm
 
-Edit a feeling
--show a list of last 10 tracked feelings
--emoticon, name, timestamp
--edit, confirm
-
 Logout
 
 
