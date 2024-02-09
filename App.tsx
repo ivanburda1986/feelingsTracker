@@ -37,10 +37,15 @@ function AuthenticatedStack() {
       contentStyle: { backgroundColor: Colors.primary100 },
   }}>
     <Stack.Screen
-        name="addFeelingScreen"
+        name="AddFeeling"
         component={AddFeelingScreen}
         options={{
-          headerRight:({tintColor})=>(<IconButton icon="exit" color={tintColor} size={24} onPress={authContext?.logout}/>)
+            title:'Add New Feeling',
+            headerStyle: {
+                backgroundColor: Colors.bgSecondary,
+            },
+            headerTintColor: Colors.primary500,
+          headerRight:({tintColor})=>(<IconButton icon="power-outline" color={tintColor} size={24} onPress={authContext?.logout}/>)
         }}
     />
   </Stack.Navigator>)

@@ -18,6 +18,17 @@ Login
 Access reset
 
 MEMBER ZONE
+Top nav: Logout
+Bottom nav: Profile, Add feeling, Timeline
+
+Screen: Profile - Change nickname, change password, delete account
+Screen: Add feeling - Select an emoticon representing current feeling
+Screen: Timeline - Visualize feelings on a time axis, horizontal scrolling
+
+
+
+
+
 A list of emoticons
 -emoticons to track various feelings (get a set of relevant feelings)
 -emoticon
