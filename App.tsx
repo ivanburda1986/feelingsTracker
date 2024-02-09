@@ -11,16 +11,17 @@ import * as SplashScreen from "expo-splash-screen";
 import {IconButton} from "./components/IconButton/IconButton";
 import {LoginScreen} from "./screens/LoginScreen";
 import {RegisterScreen} from "./screens/RegisterScreen";
+import {LandingScreen} from "./screens/LandingScreen";
 
 
 const Stack = createNativeStackNavigator();
 
 function AuthenticationStack(){
   return(<Stack.Navigator
-      screenOptions={{
-        headerStyle: { backgroundColor: Colors.bgPrimary },
-        headerTintColor: "black",
-        contentStyle: { backgroundColor: Colors.primary100 },
+      screenOptions={{headerShown:false,
+        headerStyle: { backgroundColor: Colors.bgSecondary },
+        headerTintColor: Colors.primary100,
+        contentStyle: { backgroundColor: Colors.primary500 },
       }}>
     <Stack.Screen name="Login" component={LoginScreen}/>
     <Stack.Screen name="Register" component={RegisterScreen}/>
@@ -87,7 +88,7 @@ function Root(){
 export default function App() {
   return (
    <>
-   <StatusBar style="light"/>
+   <StatusBar style="dark"/>
      <AuthContextProvider>
        <Root/>
      </AuthContextProvider>

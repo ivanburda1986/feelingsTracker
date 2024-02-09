@@ -1,6 +1,7 @@
 import {FC} from 'react';
 import {View, Image, StyleSheet, Button,Text} from "react-native";
 import {sharedStyles} from "../styles";
+import {Colors} from "../constants/colors";
 
 
 export const LandingScreen: FC = () => {
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent:"center",
       alignItems:"center",
-        backgroundColor:'azure'
+        backgroundColor:Colors.bgSecondary
 
     },
     logo:{

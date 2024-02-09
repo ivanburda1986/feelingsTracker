@@ -5,10 +5,10 @@ import {isEmailValid} from "../utils/isEmailValid";
 import {isPasswordValid} from "../utils/isPasswordValid";
 import {isUsernameValid} from "../utils/isUsernameValid";
 import {sharedStyles} from "../styles";
-import {Credentials} from "./RegisterScreen";
+import {Credentials, RegisterCredentials} from "./RegisterScreen";
 
 interface Props {
-    onSubmit: ({email, password}:Credentials)=>void;
+    onSubmit: ({email, password, username}:RegisterCredentials)=>void;
 }
 
 
@@ -34,8 +34,6 @@ const [usernameValidity, setUsernameValidity] = useState(true);
         }
     };
 
-
-
     const submitHandler = () => {
         const emailIsValid = isEmailValid(email) ;
         const passWordIsValid = isPasswordValid(password);
@@ -50,8 +48,8 @@ const [usernameValidity, setUsernameValidity] = useState(true);
         setEmailValidity(emailIsValid);
         setPasswordValidity(passWordIsValid);
         setUsernameValidity(usernameIsValid)
+
         onSubmit({email,password,username})
-        //submit form
     };
 
    const isFormValid = emailValidity && passwordValidity && usernameValidity;

@@ -7,12 +7,13 @@ import {sharedStyles} from "../styles";
 import {Credentials} from "./RegisterScreen";
 
 interface Props {
+    onAuthenticate: ({email, password}:Credentials)=>void
 }
 
 
 type InputFields = 'email'|'password'
 
-export const LoginForm: FC<Props> = () => {
+export const LoginForm: FC<Props> = ({onAuthenticate}) => {
 const [email, setEmail] = useState('');
 const [emailValidity, setEmailValidity] = useState(true);
 const [password, setPassword] = useState('');
@@ -40,7 +41,7 @@ const [passwordValidity, setPasswordValidity] = useState(true);
         }
         setEmailValidity(emailIsValid);
         setPasswordValidity(passWordIsValid);
-        //submit form
+        onAuthenticate({email,password});
     };
 
    const isFormValid = emailValidity && passwordValidity;

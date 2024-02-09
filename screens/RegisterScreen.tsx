@@ -5,6 +5,7 @@ import {sharedStyles} from "../styles";
 import {AuthContext} from "../store/AuthContextProvider";
 import {LoadingOverlay} from "../components/LoadingOverlay";
 import {createUser} from "../utils/authenticate";
+import {Colors} from "../constants/colors";
 
 export interface Credentials {
  email:string;
@@ -37,14 +38,21 @@ export const RegisterScreen: FC = () => {
  }
 
  return(<View style={styles.RegisterScreen}>
-  <Text style={sharedStyles.header1}>Register</Text>
+  <Text style={sharedStyles.header1}>Register yourself</Text>
   <RegisterForm onSubmit={signupHandler}/></View>)
 };
 
 const styles = StyleSheet.create({
- RegisterScreen:{
-  flex:1,
-  justifyContent:"center",
-  alignItems:"center"
- }
+     RegisterScreen:{
+      flex:1,
+      justifyContent:"center",
+      alignItems:"center",
+      backgroundColor:Colors.bgSecondary
+     },
+    buttonContainer:{
+        width: "80%",
+        borderRadius: 10,
+        overflow:"hidden",
+        marginBottom: 10
+    }
 })
