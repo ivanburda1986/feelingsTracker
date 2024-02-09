@@ -9,9 +9,12 @@ import {loginUser} from "../utils/authenticate";
 import {Colors} from "../constants/colors";
 import {useNavigation} from "@react-navigation/native";
 
+import type {RootStackParamList} from '../types/types';
+import {StackNavigationProp} from "@react-navigation/stack";
+
 export const LoginScreen: FC = () => {
     const [isAuthenticating, setIsAuthenticating] = useState(false);
-    const navigation = useNavigation();
+    const { navigate } = useNavigation<StackNavigationProp<RootStackParamList>>()
     const authContext = useContext(AuthContext);
 
     const loginHandler = async({email, password}:Credentials) => {
@@ -35,7 +38,7 @@ export const LoginScreen: FC = () => {
             <Text style={sharedStyles.header1}>Feelings</Text>
             <Image source={require('../assets/logo.jpg')} style={styles.logo}/>
             <View style={styles.buttonContainer}>
-                <Button title={"Register"} color="seagreen" onPress={() => navigation.navigate('Register')}/>
+                <Button title={"Register"} color="seagreen" onPress={() => navigate('Register')}/>
             </View>
         <LoginForm onAuthenticate={loginHandler} />
     </View>)
