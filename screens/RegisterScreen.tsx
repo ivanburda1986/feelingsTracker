@@ -1,11 +1,14 @@
 import {FC, useContext, useState} from 'react';
-import {Alert, StyleSheet, Text, View} from "react-native";
+import {Alert, Button, StyleSheet, Text, View} from "react-native";
 import {RegisterForm} from "./RegisterForm";
 import {sharedStyles} from "../styles";
 import {AuthContext} from "../store/AuthContextProvider";
 import {LoadingOverlay} from "../components/LoadingOverlay";
 import {createUser} from "../utils/authenticate";
 import {Colors} from "../constants/colors";
+import {useNavigation} from "@react-navigation/native";
+import {StackNavigationProp} from "@react-navigation/stack";
+import {RootStackParamList} from "../types/types";
 
 export interface Credentials {
  email:string;
@@ -20,7 +23,8 @@ export interface RegisterCredentials {
 
 export const RegisterScreen: FC = () => {
  const [isAuthenticating, setIsAuthenticating] = useState(false);
- const authContext = useContext(AuthContext);
+    const { navigate } = useNavigation<StackNavigationProp<RootStackParamList>>()
+    const authContext = useContext(AuthContext);
 
  const signupHandler = async({email, password, username}:RegisterCredentials) => {
    setIsAuthenticating(true);
@@ -39,7 +43,11 @@ export const RegisterScreen: FC = () => {
 
  return(<View style={styles.RegisterScreen}>
   <Text style={sharedStyles.header1}>Register yourself</Text>
-  <RegisterForm onSubmit={signupHandler}/></View>)
+  <RegisterForm onSubmit={signupHandler}/>
+     <View style={styles.buttonContainer}>
+         <Button title={"Login"} color="seagreen" onPress={() => navigate('Login')}/>
+     </View>
+ </View>)
 };
 
 const styles = StyleSheet.create({

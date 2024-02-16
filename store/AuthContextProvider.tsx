@@ -13,7 +13,8 @@ export const AuthContext = createContext<AuthContextType|undefined>({
     token: null,
     isAuthenticated: false,
     authenticate: () => {},
-    logout: () => {},
+    logout: () => {
+        console.log('Hello');},
 });
 
 interface Props{
@@ -29,6 +30,7 @@ export const AuthContextProvider: FC<Props> = ({children}) => {
     }
 
     function logout() {
+        console.log('logout');
         setAuthToken(null);
         AsyncStorage.removeItem("token");
     }
@@ -36,8 +38,8 @@ export const AuthContextProvider: FC<Props> = ({children}) => {
     const value = {
         token: authToken,
         isAuthenticated: !!authToken,
-        authenticate: authenticate,
-        logout: logout,
+        authenticate,
+        logout,
     };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

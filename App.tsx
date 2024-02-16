@@ -8,45 +8,53 @@ import {Colors} from "./constants/colors";
 import {useCallback, useContext, useEffect, useState} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as SplashScreen from "expo-splash-screen";
-import {IconButton} from "./components/IconButton/IconButton";
 import {LoginScreen} from "./screens/LoginScreen";
 import {RegisterScreen} from "./screens/RegisterScreen";
-import {LandingScreen} from "./screens/LandingScreen";
+import {IconButton} from "./components/IconButton/IconButton";
 
 
 const Stack = createNativeStackNavigator();
 
 function AuthenticationStack(){
-  return(<Stack.Navigator
-      screenOptions={{headerShown:false,
-        headerStyle: { backgroundColor: Colors.bgSecondary },
-        headerTintColor: Colors.primary100,
-        contentStyle: { backgroundColor: Colors.primary500 },
-      }}>
+    return(<Stack.Navigator
+        screenOptions={{
+            headerShown:false,
+            headerStyle: { backgroundColor: Colors.primary500 },
+            headerTintColor: Colors.primary100,
+            contentStyle: { backgroundColor: Colors.primary100 },
+        }}>
     <Stack.Screen name="Login" component={LoginScreen}/>
     <Stack.Screen name="Register" component={RegisterScreen}/>
   </Stack.Navigator>)
 }
 
+
+
 function AuthenticatedStack() {
-    const authContext = useContext(AuthContext)
-  return(<Stack.Navigator
+    const authContext = useContext(AuthContext);
+    return(<Stack.Navigator
       screenOptions={{
       headerStyle: { backgroundColor: Colors.primary500 },
-      headerTintColor: "white",
+      headerTintColor: Colors.primary100,
       contentStyle: { backgroundColor: Colors.primary100 },
-  }}>
+  }}
+
+    >
     <Stack.Screen
         name="AddFeeling"
         component={AddFeelingScreen}
-        options={{
-            title:'Add New Feeling',
-            headerStyle: {
-                backgroundColor: Colors.bgSecondary,
-            },
-            headerTintColor: Colors.primary500,
-          headerRight:({tintColor})=>(<IconButton icon="power-outline" color={tintColor} size={24} onPress={authContext?.logout}/>)
-        }}
+        options={( ) => ({
+          title: "Add New Feeling",
+          headerRight: ({ tintColor }) => (
+              <IconButton
+                  icon="power-outline"
+                  size={24}
+                  color={tintColor}
+                  onPress={() => authContext?.logout()}
+              />
+          ),
+        })}
+
     />
   </Stack.Navigator>)
 }
