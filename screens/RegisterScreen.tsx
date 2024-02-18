@@ -44,9 +44,6 @@ export const RegisterScreen: FC = () => {
  return(<View style={styles.RegisterScreen}>
   <Text style={sharedStyles.header1}>Register yourself</Text>
   <RegisterForm onSubmit={signupHandler}/>
-     <View style={styles.buttonContainer}>
-         <Button title={"Login"} color="seagreen" onPress={() => navigate('Login')}/>
-     </View>
  </View>)
 };
 

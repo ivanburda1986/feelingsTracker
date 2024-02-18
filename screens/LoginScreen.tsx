@@ -37,9 +37,6 @@ export const LoginScreen: FC = () => {
     return(<View style={styles.landingScreen}>
             <Text style={sharedStyles.header1}>Feelings</Text>
             <Image source={require('../assets/logo.jpg')} style={styles.logo}/>
-            <View style={styles.buttonContainer}>
-                <Button title={"Register"} color="seagreen" onPress={() => navigate('Register')}/>
-            </View>
         <LoginForm onAuthenticate={loginHandler} />
     </View>)
 };
@@ -62,7 +59,7 @@ const styles = StyleSheet.create({
         height: 120,
         borderRadius: 100,
         marginBottom: 20,
-        borderWidth: 10,
+        borderWidth: 7.5,
         borderColor: 'seagreen',
     },
     buttonContainer:{

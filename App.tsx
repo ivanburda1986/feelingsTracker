@@ -1,6 +1,6 @@
 import {StatusBar} from 'expo-status-bar';
-import {View} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
+import {Button, View, StyleSheet} from 'react-native';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {AddFeelingScreen} from "./screens/AddFeelingScreen";
 import {AuthContext, AuthContextProvider} from "./store/AuthContextProvider";
@@ -11,20 +11,38 @@ import * as SplashScreen from "expo-splash-screen";
 import {LoginScreen} from "./screens/LoginScreen";
 import {RegisterScreen} from "./screens/RegisterScreen";
 import {IconButton} from "./components/IconButton/IconButton";
+import {StackNavigationProp} from "@react-navigation/stack";
+import {RootStackParamList} from "./types/types";
 
 
 const Stack = createNativeStackNavigator();
 
 function AuthenticationStack(){
+    const { navigate } = useNavigation<StackNavigationProp<RootStackParamList>>()
+
     return(<Stack.Navigator
         screenOptions={{
-            headerShown:false,
-            headerStyle: { backgroundColor: Colors.primary500 },
-            headerTintColor: Colors.primary100,
+            // headerShown:false,
+            headerStyle: { backgroundColor: Colors.bgSecondary },
+            headerTintColor: 'fff',
             contentStyle: { backgroundColor: Colors.primary100 },
         }}>
-    <Stack.Screen name="Login" component={LoginScreen}/>
-    <Stack.Screen name="Register" component={RegisterScreen}/>
+    <Stack.Screen name="Login" component={LoginScreen}         options={( ) => ({
+        title: "",
+        headerRight: ({ tintColor }) => (
+            <Button color={Colors.primary500} title="Register" onPress={() => navigate('Register')}/>
+
+        ),
+    })}
+    />
+    <Stack.Screen name="Register" component={RegisterScreen} options={( ) => ({
+        title: "",
+        headerLeft: ({ tintColor }) => (
+            <Button color={Colors.primary500} title="Login" onPress={() => navigate('Login')}/>
+
+        ),
+    })}
+    />
   </Stack.Navigator>)
 }
 
@@ -108,3 +126,9 @@ export default function App() {
    </>
   );
 }
+
+const styles = StyleSheet.create({
+    navigationButton:{
+        color: Colors.primary500
+    }
+})
