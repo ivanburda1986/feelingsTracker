@@ -51,23 +51,23 @@ function AuthenticationStack(){
 function AuthenticatedStack() {
     const authContext = useContext(AuthContext);
     return(<Stack.Navigator
-      screenOptions={{
-      headerStyle: { backgroundColor: Colors.primary500 },
-      headerTintColor: Colors.primary100,
-      contentStyle: { backgroundColor: Colors.primary100 },
-  }}
-
+        screenOptions={{
+            headerStyle: { backgroundColor: Colors.bgSecondary },
+            contentStyle: { backgroundColor: Colors.primary100 },
+        }}
     >
     <Stack.Screen
         name="AddFeeling"
         component={AddFeelingScreen}
         options={( ) => ({
-          title: "Add New Feeling",
+            headerTintColor:Colors.primary500,
+          title: 'Add Feelings',
           headerRight: ({ tintColor }) => (
               <IconButton
                   icon="power-outline"
                   size={24}
                   color={tintColor}
+                  label="Logout"
                   onPress={() => authContext?.logout()}
               />
           ),
