@@ -1,8 +1,7 @@
 import {StatusBar} from 'expo-status-bar';
-import {Button, View, StyleSheet} from 'react-native';
+import {Button, StyleSheet, View} from 'react-native';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import {AddFeelingScreen} from "./screens/AddFeelingScreen";
 import {AuthContext, AuthContextProvider} from "./store/AuthContextProvider";
 import {Colors} from "./constants/colors";
 import {useCallback, useContext, useEffect, useState} from "react";
@@ -13,6 +12,7 @@ import {RegisterScreen} from "./screens/RegisterScreen";
 import {IconButton} from "./components/IconButton/IconButton";
 import {StackNavigationProp} from "@react-navigation/stack";
 import {RootStackParamList} from "./types/types";
+import {RoutingScreen} from "./screens/RoutingScreen";
 
 
 const Stack = createNativeStackNavigator();
@@ -58,10 +58,10 @@ function AuthenticatedStack() {
     >
     <Stack.Screen
         name="AddFeeling"
-        component={AddFeelingScreen}
+        component={RoutingScreen}
         options={( ) => ({
+            headerShown:false,
             headerTintColor:Colors.primary500,
-          title: 'Add Feelings',
           headerRight: ({ tintColor }) => (
               <IconButton
                   icon="power-outline"
@@ -82,6 +82,7 @@ function Navigation(){
   return <NavigationContainer>
     {!authContext?.isAuthenticated && <AuthenticationStack/>}
     {authContext?.isAuthenticated && <AuthenticatedStack/>}
+
   </NavigationContainer>
 }
 
@@ -113,6 +114,7 @@ function Root(){
 
   return(<View style={{ flex: 1 }} onLayout={onLayoutRootView}>
     <Navigation/>
+
   </View>)
 }
 

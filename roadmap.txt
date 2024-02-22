@@ -1,21 +1,11 @@
 ==========MVP==========
 PUBLIC ZONE
-Landing page
--introduction
--create an account
--login
-
 Create an account
--firestore
--email, password, nickname
 -easy access
 
 Login
--firestore
--email, password
 -easy access
-
-Access reset
+-access (pass) reset
 
 MEMBER ZONE
 Top nav: Logout
@@ -24,9 +14,6 @@ Bottom nav: Profile, Add feeling, Timeline
 Screen: Profile - Change nickname, change password, delete account
 Screen: Add feeling - Select an emoticon representing current feeling
 Screen: Timeline - Visualize feelings on a time axis, horizontal scrolling
-
-
-
 
 
 A list of emoticons

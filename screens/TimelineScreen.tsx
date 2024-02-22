@@ -3,16 +3,16 @@ import {StyleSheet, Text, View} from "react-native";
 import {sharedStyles} from "../styles";
 
 
-export const AddFeelingScreen: FC = () => {
+export const TimelineScreen: FC = () => {
     return (
-        <View style={styles.addFeelingScreen}>
-            <Text style={sharedStyles.header1}>Add Feeling</Text>
+        <View style={styles.timelineScreen}>
+            <Text style={sharedStyles.header1}>Timeline</Text>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    addFeelingScreen:{
+    timelineScreen:{
         flex: 1,
         justifyContent:"center",
         alignItems:"center",

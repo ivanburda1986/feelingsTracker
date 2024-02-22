@@ -3,16 +3,16 @@ import {StyleSheet, Text, View} from "react-native";
 import {sharedStyles} from "../styles";
 
 
-export const AddFeelingScreen: FC = () => {
+export const ProfileScreen: FC = () => {
     return (
-        <View style={styles.addFeelingScreen}>
-            <Text style={sharedStyles.header1}>Add Feeling</Text>
+        <View style={styles.profileScreen}>
+            <Text style={sharedStyles.header1}>Profile</Text>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    addFeelingScreen:{
+    profileScreen:{
         flex: 1,
         justifyContent:"center",
         alignItems:"center",

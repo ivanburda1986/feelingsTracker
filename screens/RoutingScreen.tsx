@@ -1,13 +1,11 @@
 import {FC} from 'react';
-import {StyleSheet, Text, View} from "react-native";
-import {sharedStyles} from "../styles";
+import {StyleSheet} from "react-native";
+import {NavigationBottomTabs} from "../components/NavigationBottomTabs/NavigationBottomTabs";
 
 
-export const AddFeelingScreen: FC = () => {
+export const RoutingScreen: FC = () => {
     return (
-        <View style={styles.addFeelingScreen}>
-            <Text style={sharedStyles.header1}>Add Feeling</Text>
-        </View>
+        <NavigationBottomTabs/>
     );
 };
 
